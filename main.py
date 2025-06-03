@@ -1,11 +1,10 @@
-class Product:
-    def __init__(self, name, price, quantity):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+from product import Product
+from product_manager import ProductManager
 
-    def display_info(self):
-        return f"Product: {self.name}, Price: {self.price} lei, Quantity: {self.quantity}"
+pm = ProductManager()
+pm.add_product(Product("Laptop", 3000, 5))
+pm.add_product(Product("Mouse", 150, 10))
+pm.add_product(Product("Keyboard", 400, 7))
 
-    def update_quantity(self, amount):
-        self.quantity = amount
+pm.display_products()
+print(f"Total inventory value: {pm.total_inventory_value()}")
